@@ -1,4 +1,4 @@
-#Function for checking speed sportsman
+# Function for checking speed sportsman
 import colorama
 from colorama import Fore, Back, Style
 colorama.init()
@@ -9,9 +9,9 @@ time = float(input("Скліьки часу в секундах витратив
 
 def speed_test(distance, time):
     result = distance / time
-    return result
+    return round(result,1)
 
 
 result = speed_test(distance, time)
 print(Fore.RED + "Швидкість з якою рухався спортсмен:",
-      result, "m/s\n або", result*3600/1000,"км/год")
+      result, "m/s\n або", result*3600/1000, "км/год")

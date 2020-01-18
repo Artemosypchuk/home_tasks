@@ -23,7 +23,7 @@
 #     print(a,"x",numb,"=",a * numb)
 # -------------------------------------------------------------------
 
-from random import randint
+# from random import randint
 
 # count = 0
 # while True:
@@ -33,6 +33,10 @@ from random import randint
 
 #     count += 1
 # print(rand,"you needed: ",count)
+from random import randint
+import colorama
+from colorama import Fore, Back, Style
+colorama.init()
 
 name = input("Enter your name: ")
 pc = 0
@@ -40,23 +44,22 @@ user = 0
 count = 0
 while True:
     count += 1
-    input("Your turn press Enter")
+    input("Your turn to throw press Enter")
     rand1 = randint(1, 6)
     rand2 = randint(1, 6)
     if rand1 == rand2:
         user += 2
-        print("	Cangradilations!!!")
+        print(Fore.YELLOW + "	Cangradilations!!!")
     result = rand1 + rand2
-    print("You throw", rand1, "and", rand2)
-    
+    print(Fore.RED + "You throw", rand1, "and", rand2)
+
     pcrand1 = randint(1, 6)
     pcrand2 = randint(1, 6)
     if pcrand1 == pcrand2:
         pc += 2
-        print("	Cangradilations!!!")
+        print(Fore.YELLOW + "	Cangradilations!!!")
     result_pc = pcrand1 + pcrand2
-    print("PC throw", pcrand1, "and", pcrand2)
-    
+    print(Fore.GREEN + "PC throw", pcrand1, "and", pcrand2)
 
     if result > result_pc:
         user += 1
@@ -64,10 +67,11 @@ while True:
         pc += 1
     if pc == 10 or user == 10:
         break
-    print(name, "score: ",user,"\tPC score: ", pc)
+    print(name, "score: ", user,
+          Style.BRIGHT + "\tPC score: ", pc)
 if pc < user:
 
-    print("The winner is ", name, "with", user, "points!")
+    print(Fore.LIGHTMAGENTA_EX + "The winner is ", name, "with", user, "points!")
 
 else:
-    print("Winner is PC with ", pc, "points!")
+    print(Fore.LIGHTMAGENTA_EX + "Winner is PC with ", pc, "points!")
